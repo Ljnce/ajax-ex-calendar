@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Calendar</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"/>
+        <link href="https://fonts.googleapis.com/css?family=Bangers|Montserrat&display=swap" rel="stylesheet">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.3/handlebars.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+
+        <div class="calendar">
+            <div class="top-calendar">
+                <h1><span id="nome-mese">Gennaio</span></h1>
+                <h3><span class="year">2018</span></h3>
+            </div>
+            <div class="top-navigation">
+                <button class="btn-navigation mese-prec"> &larr; Mese precedente</button>
+                <button class="btn-navigation mese-succ">Mese successivo &rarr; </button>
+            </div>
+            <div class="main-calendar">
+                <ul id="day-after-day">
+
+                </ul>
+            </div>
+        </div>
+
+        <script id="calendar-template" type="text/x-handlebars-template">
+            <li class="section"> {{day}} </li>
+        </script>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="js/main.js" charset="utf-8"></script>
+    </body>
+</html>
