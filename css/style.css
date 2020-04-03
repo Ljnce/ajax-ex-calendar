@@ -20,18 +20,14 @@
 
 #nome-mese{
     font-family: 'Bangers', cursive;
-    font-size: 200px;
+    font-size: 150px;
     color: #8cd9b3;
+    margin-right: 20px;
 }
 
-#day{
-    height: 50px;
-    width: 600px;
-    list-style: none;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 15px;
+.btn-navigation{
+    height: 30px;
+    width:300px;
 }
 
 #day-after-day{

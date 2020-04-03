@@ -5,8 +5,16 @@ var template = Handlebars.compile(source);
 var thisMonth = moment('2018-01-01'); //Ho il mio mese, giorno e anno di partenza
 dayCalendar(thisMonth);//Mese di partenza
 
-$('.mese-succ').click(function(){
+//Mese successivo
+$('.next').click(function(){
    thisMonth.add(1, 'month'); //aggiungo un mese ad ogni click
+   dayCalendar(thisMonth);
+   holidays()
+});
+
+//Mese precedente
+$('.prev').click(function(){
+   thisMonth.add(-1, 'month'); //aggiungo un mese ad ogni click
    dayCalendar(thisMonth);
    holidays()
 });
