@@ -3,14 +3,14 @@ var source = $("#calendar-template").html();
 var template = Handlebars.compile(source);
 
 var thisStartMonth = moment('2018-01-01'); //Ho il mio mese, giorno e anno di partenza
-   var monthNumber = parseInt(thisStartMonth.format('M') - 1); //Trovo il numero del mese
+   var monthNumber = thisStartMonth.format('M') - 1; //Trovo il numero del mese
    dayCalendar(thisStartMonth);//Mese di partenza
    holidays(monthNumber);//Porto il numero del mese
 
 //Mese successivo
 $('.next').click(function(){
    thisStartMonth.add(1, 'month'); //aggiungo un mese ad ogni click
-   var monthNumber = parseInt(thisStartMonth.format('M') - 1); //Trovo il numero del mese
+   var monthNumber = thisStartMonth.format('M') - 1; //Trovo il numero del mese
    dayCalendar(thisStartMonth);
    holidays(monthNumber);
 });
@@ -18,7 +18,7 @@ $('.next').click(function(){
 //Mese precedente
 $('.prev').click(function(){
    thisStartMonth.add(-1, 'month'); //aggiungo un mese ad ogni click
-   var monthNumber = parseInt(thisStartMonth.format('M')); //Trovo il numero del mese
+   var monthNumber = thisStartMonth.format('M') - 1; //Trovo il numero del mese
    console.log(monthNumber);
    dayCalendar(thisStartMonth);
    holidays(monthNumber);
@@ -34,7 +34,7 @@ function dayCalendar(thisMonth){
 
     for (var i = 1; i <= thisMonthMonths; i++) {
         var dayInCalendar = {
-           day:i + '' + monthName,
+           day:i + ' ' + monthName,
            dayDate: standardDay.format('YYYY-MM-DD')
         }
         var templateFinale = template(dayInCalendar);//popolo template con handlebars

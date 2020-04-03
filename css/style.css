@@ -18,15 +18,22 @@
     margin-bottom: 20px;
 }
 
+
 #nome-mese{
     font-family: 'Bangers', cursive;
-    font-size: 150px;
-    color: #8cd9b3;
+    font-size: 250px;
     margin-right: 20px;
+    position: relative;
+}
+
+h1{
+    color: #8cd9b3;
+    opacity: 0.5;
 }
 
 .festivo{
     color:red;
+    font-weight: bold;
 }
 
 .btn-navigation{
@@ -34,15 +41,22 @@
     width:300px;
 }
 
+.btn-navigation.prev{
+    margin-right: 17px;
+}
+
+.absolute{
+    position: absolute;
+}
+
 #day-after-day{
-    height:500px;
+    height:490px;
     width: 620px;
     border: 1px solid black;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: flex-start;
-    align-items: center;
     padding-left: 5px;
 }
 
