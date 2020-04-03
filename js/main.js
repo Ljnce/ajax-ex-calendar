@@ -3,16 +3,14 @@ var source = $("#calendar-template").html();
 var template = Handlebars.compile(source);
 
 var thisStartMonth = moment('2018-01-01'); //Ho il mio mese, giorno e anno di partenza
+   var monthNumber = parseInt(thisStartMonth.format('M') - 1); //Trovo il numero del mese
    dayCalendar(thisStartMonth);//Mese di partenza
-   var monthNumber = parseInt(thisStartMonth.format('M')); //Trovo il numero del mese
-   console.log(monthNumber);
-   holidays(monthNumber);
+   holidays(monthNumber);//Porto il numero del mese
 
 //Mese successivo
 $('.next').click(function(){
    thisStartMonth.add(1, 'month'); //aggiungo un mese ad ogni click
-   var monthNumber = parseInt(thisStartMonth.format('M')); //Trovo il numero del mese
-   console.log(monthNumber);
+   var monthNumber = parseInt(thisStartMonth.format('M') - 1); //Trovo il numero del mese
    dayCalendar(thisStartMonth);
    holidays(monthNumber);
 });
@@ -39,10 +37,9 @@ function dayCalendar(thisMonth){
            day:i + '' + monthName,
            dayDate: standardDay.format('YYYY-MM-DD')
         }
-
         var templateFinale = template(dayInCalendar);//popolo template con handlebars
         $('#day-after-day').append(templateFinale);
-        standardDay.add(1, 'day'); //perchè parte da 0
+        standardDay.add(1, 'day');
     }
 };
 
@@ -51,14 +48,14 @@ function holidays(monthNumber){
         url:'https://flynn.boolean.careers/exercises/api/holidays',
         data: {
             year:2018,
-            month: monthNumber
+            month: monthNumber //ho il mio numero che cambia tramite la variabile monthNumber
         },
         method: 'GET',
         success: function(myCalendar){
             var giorniFestivi = myCalendar.response; //Estrapolo i giorni
+            console.log(giorniFestivi);
             for (var i = 0; i < giorniFestivi.length; i++) {
             var giornoFestivo = giorniFestivi[i]; //Estrapolo un girono singolo
-
             var nameHoliday = giornoFestivo.name; //Estrapolo nome festività
             var dateHoliday = giornoFestivo.date; //Estrapolo data festività
             $('#day-after-day li[data-day="' + dateHoliday + '"]').addClass('festivo').append(' - ' + nameHoliday);
