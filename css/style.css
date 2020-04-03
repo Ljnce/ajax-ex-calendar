@@ -25,6 +25,10 @@
     margin-right: 20px;
 }
 
+.festivo{
+    color:red;
+}
+
 .btn-navigation{
     height: 30px;
     width:300px;
