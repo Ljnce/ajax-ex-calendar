@@ -60,9 +60,30 @@ function dayCalendar(thisMonth){
 function wrongYear(thisMonth){
     var year = thisMonth.format('YYYY');
     if (year == 2019) {
-        alert ('2019');
+        $('#nome-mese').text('Non disponibile').addClass('wrong-year');
+        $('.absolute').addClass('relative');
+        $('.main-calendar').hide();
+        $('.years-ago').hide();
+        $('.next').hide();
+        $('.prev').text('Torna indietro');
+
     } else if (year == 2017) {
-        alert('2017');
+        $('#nome-mese').text('Non disponibile').addClass('wrong-year');
+        $('.absolute').addClass('relative');
+        $('.main-calendar').hide();
+        $('.years-ago').hide();
+        $('.prev').hide();
+        $('.next').text('Torna indietro');
+
+    } else{
+        $('#nome-mese').removeClass('wrong-year');
+        $('.absolute').removeClass('relative');
+        $('.main-calendar').show();
+        $('.years-ago').show();
+        $('.prev').show();
+        $('.next').show();
+        $('.next').text('Mese successivo');
+        $('.prev').text('Mese precedente');
     }
     return year;
 }

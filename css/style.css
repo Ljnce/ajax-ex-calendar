@@ -30,7 +30,7 @@
 
 #nome-mese{
     font-family: 'Bangers', cursive;
-    font-size: 280px;
+    font-size: 220px;
     margin-right: 20px;
     position: relative;
 }
@@ -91,4 +91,12 @@ h1{
 
 li:hover{
     background-color: #ededed;
+}
+
+.wrong-year{
+    color: black;
+}
+
+.relative{
+    position: relative;
 }
