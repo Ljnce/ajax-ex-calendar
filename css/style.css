@@ -5,14 +5,42 @@
     font-family: 'Montserrat', sans-serif;
 }
 
-.now{
-    height: 30px;
+.weather{
+    height: 100vh;
+    width: 457px;
+    position: absolute;
     display: flex;
     align-items: center;
-    justify-content: flex-end;
-    margin-right: 30px;
+    justify-content:center;
 }
 
+.weather-data{
+    height: 520px;
+    width: 300px;
+    background: #40bf80;
+    margin-top: 8px;
+    display: flex;
+    justify-content: center;
+    padding-top: 30px;
+    border: 1px solid black;
+    border-style: solid hidden solid solid;
+}
+
+i.fas.fa-cloud-meatball{
+    display: none;
+}
+
+.active{
+    display: block;
+}
+
+.no-active{
+    display: none;
+}
+
+.weather-data i{
+    font-size: 100px;
+}
 .calendar{
     height: 100vh;
     width: 100vw;
@@ -30,14 +58,14 @@
 
 #nome-mese{
     font-family: 'Bangers', cursive;
-    font-size: 220px;
+    font-size: 140px;
     margin-right: 20px;
     position: relative;
 }
 
 h1{
     color: #8cd9b3;
-    opacity: 0.4;
+    opacity: 0.3;
 }
 
 .festivo{
@@ -47,7 +75,7 @@ h1{
 
 .btn-navigation{
     height: 30px;
-    width:300px;
+    width:330px;
     background-color: #8cd9b3;
     opacity: 0.5;
     border: 1px solid black;
@@ -67,19 +95,20 @@ h1{
 }
 
 #day-after-day{
-    height:490px;
-    width: 620px;
+    height:520px;
+    width: 680px;
     border: 1px solid black;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: flex-start;
     padding-left: 5px;
+    border-style: solid solid solid hidden;
 }
 
 .section{
     height: calc(500px / 6);
-    width: calc(510px / 6);
+    width: calc(660px / 6);
     border: 1px solid #79d26a;
     border-style: hidden hidden solid hidden;
     list-style: none;
@@ -89,8 +118,12 @@ h1{
     margin-left: 1px;
 }
 
+li{
+    font-size: 10px;
+}
 li:hover{
-    background-color: #ededed;
+    background-color:#8cd9b3;
+    opacity: 0.9;
 }
 
 .wrong-year{

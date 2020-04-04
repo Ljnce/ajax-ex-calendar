@@ -56,30 +56,54 @@ function dayCalendar(thisMonth){
     }
 };
 
+$('#day-after-day').on('click', '.section', function(){
+    $('i.fas.fa-cloud-meatball').show();
+    $('i.fas.fa-cloud-sun').hide();
+    });
+    /*
+    var thisMonthi = moment('2018-01-01');
+    var thisMonthMonthss = parseInt(thisMonthi.daysInMonth());
+    for (var i = 1; i <= thisMonthMonthss; i++) {
+    if (i % 2 == 0) { console.log('pari');
+        $('i.fas.fa-cloud-meatball').show();
+        $('i.fas.fa-cloud-sun').hide();
+    } else if (i % 3 == 0) { console.log('dispari');
+    $('i.fas.fa-cloud-meatball').hide();
+    $('i.fas.fa-cloud-sun').show();
+}
+}
+*/
+
 //Anno fuori dall'API (2018)
 function wrongYear(thisMonth){
     var year = thisMonth.format('YYYY');
     if (year == 2019) {
         $('#nome-mese').text('Non disponibile').addClass('wrong-year');
+        $('#anno').hide();
+        $('.weather').hide();
         $('.absolute').addClass('relative');
         $('.main-calendar').hide();
-        $('.years-ago').hide();
+        $('.years-ago, .today').hide();
         $('.next').hide();
         $('.prev').text('Torna indietro');
 
     } else if (year == 2017) {
         $('#nome-mese').text('Non disponibile').addClass('wrong-year');
         $('.absolute').addClass('relative');
+        $('#anno').hide();
+        $('.weather').hide();
         $('.main-calendar').hide();
-        $('.years-ago').hide();
+        $('.years-ago, .today').hide();
         $('.prev').hide();
         $('.next').text('Torna indietro');
 
     } else{
         $('#nome-mese').removeClass('wrong-year');
         $('.absolute').removeClass('relative');
+        $('#anno').show();
+        $('.weather').show();
         $('.main-calendar').show();
-        $('.years-ago').show();
+        $('.years-ago, .today').show();
         $('.prev').show();
         $('.next').show();
         $('.next').text('Mese successivo');
