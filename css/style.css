@@ -2,6 +2,15 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.now{
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-right: 30px;
 }
 
 .calendar{
@@ -21,14 +30,14 @@
 
 #nome-mese{
     font-family: 'Bangers', cursive;
-    font-size: 250px;
+    font-size: 280px;
     margin-right: 20px;
     position: relative;
 }
 
 h1{
     color: #8cd9b3;
-    opacity: 0.5;
+    opacity: 0.4;
 }
 
 .festivo{
@@ -39,6 +48,14 @@ h1{
 .btn-navigation{
     height: 30px;
     width:300px;
+    background-color: #8cd9b3;
+    opacity: 0.5;
+    border: 1px solid black;
+    color: black;
+}
+
+.btn-navigation:focus{
+    display: none;
 }
 
 .btn-navigation.prev{
@@ -63,11 +80,15 @@ h1{
 .section{
     height: calc(500px / 6);
     width: calc(510px / 6);
-    border: 1px solid #8cd9b3;
+    border: 1px solid #79d26a;
     border-style: hidden hidden solid hidden;
     list-style: none;
     display: flex;
     align-items: center;
     justify-content: center;
     margin-left: 1px;
+}
+
+li:hover{
+    background-color: #ededed;
 }
