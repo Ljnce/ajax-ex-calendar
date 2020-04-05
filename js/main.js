@@ -146,12 +146,3 @@ function holidays(monthNumber){
             }
     })
 };
-//
-// function daysInMonth(month) {
-//     var count =  moment().month(month).daysInMonth();
-//     var days = [];
-//     for (var i = 1; i < count; i++) {
-//       days.push(moment().month(month).date(i).format('dddd'));
-//     }
-//     return days;
-//   }
