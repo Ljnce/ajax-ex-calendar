@@ -96,13 +96,13 @@ h1{
     opacity: 0.5;
     border: 1px solid black;
     color: black;
+    cursor: pointer;
 }
 
-/*
 .btn-navigation:disabled{
-    background-color: red;
+    background-color: lightgrey;
     cursor: not-allowed;
-} */
+}
 
 .btn-navigation.prev{
     margin-right: 17px;

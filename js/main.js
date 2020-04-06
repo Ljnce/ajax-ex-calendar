@@ -7,11 +7,10 @@ $('.hour').text(thisHour);
 
 var thisStartMonth = moment('2018-01-01'); //Ho il mio mese, giorno e anno di partenza
 //var from = thisStartMonth.fromNow();
-/*
-var thisEndMonth = moment('2018-12-31');
-var limiteIniziale = moment('2018-01-01');
-var limiteFinale = moment('2018-12-01');
-*/
+
+var limiteIniziale = moment('2018-01-01'); //Limite partenza
+var limiteFinale = moment('2018-12-01'); //Limite fine
+
 //$('.years-ago small').text('  Questo calendario risale a ' + from);// Questo calendario risale a...
 var monthNumber = thisStartMonth.format('M') - 1; //Trovo il numero del mese
 dayCalendar(thisStartMonth);//Mese di partenza
@@ -19,26 +18,26 @@ holidays(monthNumber);//Porto il numero del mese
 
 //Mese successivo
 $('.next').click(function(){
-    //$('.prev').prop('disabled', false); -----> //Utilizzo isSame con disabled click
+   $('.prev').prop('disabled', false); //-----> Utilizzo isSame con disabled click
    thisStartMonth.add(1, 'month'); //aggiungo un mese ad ogni click
    var monthNumber = thisStartMonth.format('M') - 1; //Trovo il numero del mese
    dayCalendar(thisStartMonth);
    holidays(monthNumber);
-   //if(thisStartMonth.isSameOrAfter(limiteFinale)){ ---> //Utilizzo isSame con disabled click
-    //   $('.next').prop('disabled', true);
-  // }
+   if(thisStartMonth.isSameOrAfter(limiteFinale)){ //---> Utilizzo isSame con disabled click
+      $('.next').prop('disabled', true);
+   }
 });
 
 //Mese precedente
 $('.prev').click(function(){
-    //$('.next').prop('disabled', false); -----> //Utilizzo isSame con disabled click
+   $('.next').prop('disabled', false);// -----> Utilizzo isSame con disabled click
    thisStartMonth.subtract(1, 'month'); //aggiungo un mese ad ogni click
    var monthNumber = thisStartMonth.format('M') - 1; //Trovo il numero del mese
    dayCalendar(thisStartMonth);
    holidays(monthNumber);
-   //if(thisStartMonth.isSameOrBefore(limiteIniziale)){ ---> //Utilizzo isSame con disabled click
-    //   $('.prev').prop('disabled', true);
-  // }
+   if(thisStartMonth.isSameOrBefore(limiteIniziale)){// ---> Utilizzo isSame con disabled click
+       $('.prev').prop('disabled', true);
+   }
 });
 
 //Funzione al click
@@ -51,10 +50,9 @@ function dayCalendar(thisMonth){
     $('#nome-mese').text(monthName); //Metto il nome del mese corrispondente ad ogni click
 
     var startMonthDay = thisMonth.format('dddd'); //Trovo il nome del giorno in cui inizia il mese
-    console.log(startMonthDay);
     $('.week li:first-of-type').text(startMonthDay);
 
-    var yearName = wrongYear(thisMonth);//Richiamo funzione per l'anno sbagliato
+    //var yearName = wrongYear(thisMonth);//Richiamo funzione per l'anno sbagliato ALTERNATIVA 1 o 2
 
     var yearNameText = thisMonth.format('YYYY');//Trovo l'anno corrispondente
     $('#anno').text(yearNameText);//Metto il numero dell'anno corrispondente
@@ -67,7 +65,6 @@ function dayCalendar(thisMonth){
     */
 
     for (var i = 1; i <= thisMonthMonths; i++) {
-        console.log(i);
         var dayInCalendar = {
            day:i + '  ' + monthName.slice(0,3), //Solo le prime 2 parole
            dayDate: standardDay.format('YYYY-MM-DD')
@@ -137,7 +134,7 @@ function wrongYear(thisMonth){
 */
 
 
-
+/*
 //ALTERNATIVA CON SOLO 1 TASTO ------> ALTERNATIVA 2
 function wrongYear(thisMonth){
     var year = thisMonth.format('M')- 1;
@@ -153,7 +150,7 @@ function wrongYear(thisMonth){
     }
     return year;
 }
-
+*/
 
 /*
 //RICHIAMO ALTERNATIVA 2 ALLA FUNZIONE PER L'ANNO SBAGLIATO
