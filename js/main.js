@@ -6,19 +6,19 @@ var thisHour = moment().format('LL, LT'); //Ora e giorno correnti
 $('.hour').text(thisHour);
 
 var thisStartMonth = moment('2018-01-01'); //Ho il mio mese, giorno e anno di partenza
-//var from = thisStartMonth.fromNow();
+var from = thisStartMonth.fromNow();
 
 var limiteIniziale = moment('2018-01-01'); //Limite partenza
 var limiteFinale = moment('2018-12-01'); //Limite fine
 
-//$('.years-ago small').text('  Questo calendario risale a ' + from);// Questo calendario risale a...
+$('.years-ago small').text('  Questo calendario risale a ' + from);// Questo calendario risale a...
 var monthNumber = thisStartMonth.format('M') - 1; //Trovo il numero del mese
 dayCalendar(thisStartMonth);//Mese di partenza
 holidays(monthNumber);//Porto il numero del mese
 
 //Mese successivo
 $('.next').click(function(){
-    if (thisStartMonth.isSameOrAfter(limiteFinale)){
+    if (thisStartMonth.isSameOrAfter(limiteFinale)){ //Controllo su manomissione codice
         alert('Hai manomesso il codice!')
     }else{
    $('.prev').prop('disabled', false); //-----> Utilizzo isSame con disabled click
@@ -34,7 +34,7 @@ $('.next').click(function(){
 
 //Mese precedente
 $('.prev').click(function(){
-    if (thisStartMonth.isSameOrBefore(limiteIniziale)) {
+    if (thisStartMonth.isSameOrBefore(limiteIniziale)) { //Controllo su manomissione codice
         alert ('Hai manomesso il codice!')
     }
    $('.next').prop('disabled', false);// -----> Utilizzo isSame con disabled click
@@ -87,11 +87,11 @@ function dayCalendar(thisMonth){
         standardDay.add(1, 'day');
     }
 };
-
-$('#day-after-day').on('click', '.section', function(){
-    $('i.fas.fa-cloud-meatball').show();
-    $('i.fas.fa-cloud-sun').hide();
-    });
+//
+// $('#day-after-day').on('click', '.section', function(){
+//     $('i.fas.fa-cloud-meatball').show();
+//     $('i.fas.fa-cloud-sun').hide();
+//     });
     /*
     var thisMonthi = moment('2018-01-01');
     var thisMonthMonthss = parseInt(thisMonthi.daysInMonth());
