@@ -47,14 +47,20 @@ i.fas.fa-cloud-meatball{
     display: flex;
     align-items: center;
     justify-content: space-between;
+    border: 1px solid black;
+    border-style: solid solid hidden solid;
+}
+
+.week li{
+    font-size: 20px;
 }
 
 .week li:first-of-type{
     margin-left: 10px;
 }
 
-.week li:last-of-type{
-    margin-right: 10px;
+.week li:nth-of-type(2){
+    margin-right:25px;
 }
 
 .calendar{
@@ -136,12 +142,14 @@ h1{
     margin-top: 15px;
 }
 
-li{
+#day-after-day li{
     font-size: 10px;
 }
-li:hover{
+
+#day-after-day li:hover{
     background-color:#8cd9b3;
     opacity: 0.9;
+    cursor: pointer;
 }
 
 .wrong-year{
@@ -157,7 +165,7 @@ li:hover{
         display: flex;
         justify-content: center;
     }
-    
+
     #nome-mese{
         font-size: 80px;
     }

@@ -58,8 +58,8 @@ function dayCalendar(thisMonth){
 
     weekArray = moment.weekdays();//Trovo i giorni della settimana
 
-    var startMonthDay = thisMonth.format('dddd'); //Trovo il nome del giorno in cui inizia il mese
-    $('.week li:first-of-type').text(startMonthDay);
+    var startMonthDay = weekDaysName(thisMonth); //Trovo il nome del giorno in cui inizia il mese
+    $('.week li:first-of-type').text(startMonthDay); //Metto il primo giorno del mese in altro a sx
 
     //var yearName = wrongYear(thisMonth);//Richiamo funzione per l'anno sbagliato ALTERNATIVA 1 o 2
 
@@ -82,6 +82,26 @@ function dayCalendar(thisMonth){
         $('#day-after-day').append(templateFinale);
         standardDay.add(1, 'day');
     }
+};
+
+//FUNZIONE PER TROVARE I NOMI DEI GIORNI (fatta un po tanto in maniera 'easy way')
+function weekDaysName (thisMonth) {
+ var days = thisMonth.format('dddd')
+ if (days == 'lunedì') {
+     $('.week li:nth-of-type(2)').text('martedì' + ' ' + 'mercoledì' + ' ' + 'giovedì' + ' ' + 'venerdì' + ' ' + 'sabato' + ' ' + 'domenica');
+ } else if (days == 'martedì') {
+     $('.week li:nth-of-type(2)').text('mercoledì' + ' ' + 'giovedì' + ' ' + 'venerdì' + ' ' + 'sabato' + ' ' + 'domenica' + ' ' + 'lunedì');
+ }else if (days == 'mercoledì') {
+     $('.week li:nth-of-type(2)').text('giovedì' + ' ' + 'venerdì' + ' ' + 'sabato' + ' ' + 'domenica'  + ' ' + 'lunedì' + ' ' + 'martedì');
+ } else if (days == 'giovedì') {
+     $('.week li:nth-of-type(2)').text('venerdì' + ' ' + 'sabato' + ' ' + 'domenica' + ' ' + 'lunedì' + ' ' + 'martedì' + ' ' + 'mercoledì');
+ } else if (days == 'venerdì') {
+     $('.week li:nth-of-type(2)').text('sabato' + ' ' + 'domenica' + ' ' + 'lunedì' + ' ' + 'martedì' + ' ' + 'mercoledì' + ' ' + 'giovedì');
+ } else if (days == 'sabato') {
+     $('.week li:nth-of-type(2)').text('domenica' + ' ' + 'lunedì' +  ' ' +  'martedì' + ' ' + 'mercoledì' + ' ' + 'giovedì' + ' ' + 'venerdì' );
+ } else if (days == 'domenica') {
+     $('.week li:nth-of-type(2)').text('lunedì' + ' ' + 'martedì' + ' ' + 'mercoledì' + ' ' + 'giovedì' + ' ' + 'venerdì' + ' ' + 'sabato');
+ } return days;
 };
 
 /*
