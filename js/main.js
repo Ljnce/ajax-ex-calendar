@@ -87,24 +87,7 @@ function dayCalendar(thisMonth){
         standardDay.add(1, 'day');
     }
 };
-//
-// $('#day-after-day').on('click', '.section', function(){
-//     $('i.fas.fa-cloud-meatball').show();
-//     $('i.fas.fa-cloud-sun').hide();
-//     });
-    /*
-    var thisMonthi = moment('2018-01-01');
-    var thisMonthMonthss = parseInt(thisMonthi.daysInMonth());
-    for (var i = 1; i <= thisMonthMonthss; i++) {
-    if (i % 2 == 0) { console.log('pari');
-        $('i.fas.fa-cloud-meatball').show();
-        $('i.fas.fa-cloud-sun').hide();
-    } else if (i % 3 == 0) { console.log('dispari');
-    $('i.fas.fa-cloud-meatball').hide();
-    $('i.fas.fa-cloud-sun').show();
-}
-}
-*/
+
 
 /*
 //Anno fuori dall'API (2018)-----> ALTERNATIVA 1
