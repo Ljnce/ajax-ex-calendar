@@ -41,6 +41,22 @@ i.fas.fa-cloud-meatball{
 .weather-data i{
     font-size: 100px;
 }
+
+.week{
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.week li:first-of-type{
+    margin-left: 10px;
+}
+
+.week li:last-of-type{
+    margin-right: 10px;
+}
+
 .calendar{
     height: 100vh;
     width: 100vw;

@@ -7,8 +7,11 @@ $('.hour').text(thisHour);
 
 var thisStartMonth = moment('2018-01-01'); //Ho il mio mese, giorno e anno di partenza
 //var from = thisStartMonth.fromNow();
+/*
+var thisEndMonth = moment('2018-12-31');
 var limiteIniziale = moment('2018-01-01');
 var limiteFinale = moment('2018-12-01');
+*/
 //$('.years-ago small').text('  Questo calendario risale a ' + from);// Questo calendario risale a...
 var monthNumber = thisStartMonth.format('M') - 1; //Trovo il numero del mese
 dayCalendar(thisStartMonth);//Mese di partenza
@@ -21,11 +24,14 @@ $('.next').click(function(){
    var monthNumber = thisStartMonth.format('M') - 1; //Trovo il numero del mese
    dayCalendar(thisStartMonth);
    holidays(monthNumber);
-
+   //if(thisStartMonth.isSameOrAfter(limiteFinale)){ ---> //Utilizzo isSame con disabled click
+    //   $('.next').prop('disabled', true);
+  // }
 });
 
 //Mese precedente
 $('.prev').click(function(){
+    //$('.next').prop('disabled', false); -----> //Utilizzo isSame con disabled click
    thisStartMonth.subtract(1, 'month'); //aggiungo un mese ad ogni click
    var monthNumber = thisStartMonth.format('M') - 1; //Trovo il numero del mese
    dayCalendar(thisStartMonth);
