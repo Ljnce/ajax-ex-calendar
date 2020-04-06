@@ -50,6 +50,10 @@ function dayCalendar(thisMonth){
     var monthName = thisMonth.format('MMMM'); //Trovo il nome del mese
     $('#nome-mese').text(monthName); //Metto il nome del mese corrispondente ad ogni click
 
+    var startMonthDay = thisMonth.format('dddd'); //Trovo il nome del giorno in cui inizia il mese
+    console.log(startMonthDay);
+    $('.week li:first-of-type').text(startMonthDay);
+
     var yearName = wrongYear(thisMonth);//Richiamo funzione per l'anno sbagliato
 
     var yearNameText = thisMonth.format('YYYY');//Trovo l'anno corrispondente
@@ -63,6 +67,7 @@ function dayCalendar(thisMonth){
     */
 
     for (var i = 1; i <= thisMonthMonths; i++) {
+        console.log(i);
         var dayInCalendar = {
            day:i + '  ' + monthName.slice(0,3), //Solo le prime 2 parole
            dayDate: standardDay.format('YYYY-MM-DD')
