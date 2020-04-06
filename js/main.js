@@ -6,37 +6,48 @@ var thisHour = moment().format('LL, LT'); //Ora e giorno correnti
 $('.hour').text(thisHour);
 
 var thisStartMonth = moment('2018-01-01'); //Ho il mio mese, giorno e anno di partenza
-var from = thisStartMonth.fromNow();
-$('.years-ago small').text('  Questo calendario risale a ' + from);// Questo calendario risale a...
+//var from = thisStartMonth.fromNow();
+var limiteIniziale = moment('2018-01-01');
+var limiteFinale = moment('2018-12-01');
+//$('.years-ago small').text('  Questo calendario risale a ' + from);// Questo calendario risale a...
 var monthNumber = thisStartMonth.format('M') - 1; //Trovo il numero del mese
 dayCalendar(thisStartMonth);//Mese di partenza
 holidays(monthNumber);//Porto il numero del mese
 
 //Mese successivo
 $('.next').click(function(){
+    //$('.prev').prop('disabled', false); -----> //Utilizzo isSame con disabled click
    thisStartMonth.add(1, 'month'); //aggiungo un mese ad ogni click
    var monthNumber = thisStartMonth.format('M') - 1; //Trovo il numero del mese
    dayCalendar(thisStartMonth);
    holidays(monthNumber);
+
 });
 
 //Mese precedente
 $('.prev').click(function(){
-   thisStartMonth.add(-1, 'month'); //aggiungo un mese ad ogni click
+   thisStartMonth.subtract(1, 'month'); //aggiungo un mese ad ogni click
    var monthNumber = thisStartMonth.format('M') - 1; //Trovo il numero del mese
    dayCalendar(thisStartMonth);
    holidays(monthNumber);
+   //if(thisStartMonth.isSameOrBefore(limiteIniziale)){ ---> //Utilizzo isSame con disabled click
+    //   $('.prev').prop('disabled', true);
+  // }
 });
 
 //Funzione al click
 function dayCalendar(thisMonth){
     $('#day-after-day').empty()//.html('');
-    var standardDay = thisStartMonth.clone(); //clone
+    var standardDay = thisMonth.clone(); //clone
     var thisMonthMonths = thisMonth.daysInMonth(); //Trovo il numero di giorni che ha il mio numero
+
     var monthName = thisMonth.format('MMMM'); //Trovo il nome del mese
     $('#nome-mese').text(monthName); //Metto il nome del mese corrispondente ad ogni click
-    var yearName = wrongYear(thisMonth);//Richiamo funzione per l'anno sbagliato, e richiamo il .formato('YYYY') per lo step sotto
-    $('#anno').text(yearName);//Metto il numero dell'anno corrispondente
+
+    var yearName = wrongYear(thisMonth);//Richiamo funzione per l'anno sbagliato
+
+    var yearNameText = thisMonth.format('YYYY');//Trovo l'anno corrispondente
+    $('#anno').text(yearNameText);//Metto il numero dell'anno corrispondente
 
     /*
     //ALTERNATIVA 2 ALLA FUNZIONE PER L'ANNO SBAGLIATO
@@ -74,7 +85,8 @@ $('#day-after-day').on('click', '.section', function(){
 }
 */
 
-//Anno fuori dall'API (2018)
+/*
+//Anno fuori dall'API (2018)-----> ALTERNATIVA 1
 function wrongYear(thisMonth){
     var year = thisMonth.format('YYYY');
     if (year == 2019) {
@@ -111,6 +123,26 @@ function wrongYear(thisMonth){
     }
     return year;
 }
+*/
+
+
+
+//ALTERNATIVA CON SOLO 1 TASTO ------> ALTERNATIVA 2
+function wrongYear(thisMonth){
+    var year = thisMonth.format('M')- 1;
+    if (year == 0) { //Mi mostri solo il next a gennaio
+        $('.next').show();
+        $('.prev').hide();
+    } else if (year == 11) { //Mi mostri solo il prev se arrivi dicembre
+        $('.next').hide();
+        $('.prev').show();
+    } else{ //Me li mostri entrambi
+        $('.next').show();
+        $('.prev').show();
+    }
+    return year;
+}
+
 
 /*
 //RICHIAMO ALTERNATIVA 2 ALLA FUNZIONE PER L'ANNO SBAGLIATO

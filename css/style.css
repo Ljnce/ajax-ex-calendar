@@ -82,9 +82,11 @@ h1{
     color: black;
 }
 
-.btn-navigation:focus{
-    display: none;
-}
+/*
+.btn-navigation:disabled{
+    background-color: red;
+    cursor: not-allowed;
+} */
 
 .btn-navigation.prev{
     margin-right: 17px;
@@ -107,8 +109,8 @@ h1{
 }
 
 .section{
-    height: calc(500px / 6);
-    width: calc(660px / 6);
+    height: calc(500px / 7);
+    width: calc(660px / 7);
     border: 1px solid #79d26a;
     border-style: hidden hidden solid hidden;
     list-style: none;
