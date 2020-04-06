@@ -58,10 +58,6 @@ function dayCalendar(thisMonth){
 
     weekArray = moment.weekdays();//Trovo i giorni della settimana
 
-    for (var i = 0; i < weekArray.length; i++) {
-        $('.week li:first-of-type').text(i);
-    }
-
     var startMonthDay = thisMonth.format('dddd'); //Trovo il nome del giorno in cui inizia il mese
     $('.week li:first-of-type').text(startMonthDay);
 
@@ -87,7 +83,6 @@ function dayCalendar(thisMonth){
         standardDay.add(1, 'day');
     }
 };
-
 
 /*
 //Anno fuori dall'API (2018)-----> ALTERNATIVA 1
