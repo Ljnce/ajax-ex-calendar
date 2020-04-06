@@ -18,6 +18,9 @@ holidays(monthNumber);//Porto il numero del mese
 
 //Mese successivo
 $('.next').click(function(){
+    if (thisStartMonth.isSameOrAfter(limiteFinale)){
+        alert('Hai manomesso il codice!')
+    }else{
    $('.prev').prop('disabled', false); //-----> Utilizzo isSame con disabled click
    thisStartMonth.add(1, 'month'); //aggiungo un mese ad ogni click
    var monthNumber = thisStartMonth.format('M') - 1; //Trovo il numero del mese
@@ -26,10 +29,14 @@ $('.next').click(function(){
    if(thisStartMonth.isSameOrAfter(limiteFinale)){ //---> Utilizzo isSame con disabled click
       $('.next').prop('disabled', true);
    }
+}
 });
 
 //Mese precedente
 $('.prev').click(function(){
+    if (thisStartMonth.isSameOrBefore(limiteIniziale)) {
+        alert ('Hai manomesso il codice!')
+    }
    $('.next').prop('disabled', false);// -----> Utilizzo isSame con disabled click
    thisStartMonth.subtract(1, 'month'); //aggiungo un mese ad ogni click
    var monthNumber = thisStartMonth.format('M') - 1; //Trovo il numero del mese
@@ -48,6 +55,12 @@ function dayCalendar(thisMonth){
 
     var monthName = thisMonth.format('MMMM'); //Trovo il nome del mese
     $('#nome-mese').text(monthName); //Metto il nome del mese corrispondente ad ogni click
+
+    weekArray = moment.weekdays();//Trovo i giorni della settimana
+
+    for (var i = 0; i < weekArray.length; i++) {
+        $('.week li:first-of-type').text(i);
+    }
 
     var startMonthDay = thisMonth.format('dddd'); //Trovo il nome del giorno in cui inizia il mese
     $('.week li:first-of-type').text(startMonthDay);
